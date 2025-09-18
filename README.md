@@ -1,72 +1,87 @@
-# Lead Management Flutter App
+# Leads Management App - Flutter
 
-This Flutter application recreates the lead management interface based on the provided screenshots.
+A comprehensive Flutter application for managing customer leads with dashboard, detailed views, action items and bank updates.
 
 ## Features
 
-- **Lead Detail Screen**: Shows customer information, credit card details, application status, and action buttons
-- **Application Timeline Screen**: Displays the step-by-step progress of the application process
-- **Recommended Products Screen**: Shows a grid of recommended financial products
+- **Dashboard Screen**: Overview with stats, quick actions, and recent activity
+- **Customer Lead Cards**: Display customer information with product details
+- **Customer Detail Screen**: Comprehensive view of individual customer information
+- **Action Required**: Show customers who need to complete actions
+- **Bank Updates**: Track bank update status and delays
+- **Tabbed Interface**: Filter between Credit Cards, Savings A/c, and Demat A/c
+- **Filter Options**: Filter leads by Actionable, Pending, Rejected, and Activated status
+- **Help Section**: Fixed bottom help section for user support
+- **Navigation**: Seamless navigation between screens
 
-## Screens Implemented
+## Getting Started
 
-1. **Lead Detail Screen** (`lib/screens/lead_detail_screen.dart`)
-   - Customer header with WhatsApp integration
-   - Status tabs and filter chips
-   - Credit card information with update tracking
-   - Application status timeline
-   - SMS and WhatsApp reminder buttons
+### Prerequisites
 
-2. **Application Timeline Screen** (`lib/screens/application_timeline_screen.dart`)
-   - Complete timeline of application steps
-   - Customer action required section
-   - Complete form button
+- Flutter SDK (>=3.10.0)
+- Dart SDK (>=3.0.0)
 
-3. **Recommended Products Screen** (`lib/screens/recommended_products_screen.dart`)
-   - Grid layout of recommended financial products
-   - Bank logos and product information
-   - Sell Now buttons for each product
+### Installation
 
-## Setup Instructions
+1. Clone the repository
+2. Navigate to the project directory
+3. Install dependencies:
+   ```bash
+   flutter pub get
+   ```
 
-1. **Prerequisites**: Make sure you have Flutter installed on your system
-2. **Clone/Copy**: Copy all the files to your Flutter project directory
-3. **Dependencies**: Run `flutter pub get` to install dependencies
-4. **Assets**: Add the required font files to the `fonts/` directory:
-   - `Poppins-Regular.ttf`
-   - `Poppins-Medium.ttf`
-   - `Poppins-SemiBold.ttf`
-5. **Run**: Execute `flutter run` to start the application
+4. Run the app:
+   ```bash
+   flutter run
+   ```
 
-## Dependencies Used
-
-- `url_launcher`: For WhatsApp and SMS functionality
-- `cupertino_icons`: For iOS-style icons
-
-## Design Features
-
-- **Material Design**: Uses Flutter's Material Design components
-- **Custom Colors**: Matches the original design color scheme
-- **Responsive Layout**: Adapts to different screen sizes
-- **Custom Fonts**: Uses Poppins font family as in the original design
-- **Interactive Elements**: Buttons, chips, and navigation elements
-
-## File Structure
+## Project Structure
 
 ```
 lib/
-├── main.dart                           # App entry point
+├── main.dart                 # App entry point
 ├── screens/
-│   ├── lead_detail_screen.dart         # Main lead details screen
-│   ├── application_timeline_screen.dart # Timeline view
-│   └── recommended_products_screen.dart # Products grid
+│   ├── dashboard_screen.dart # Dashboard with stats and overview
+│   ├── leads_screen.dart     # Main leads list screen
+│   └── customer_detail_screen.dart # Individual customer details
+├── models/
+│   └── customer.dart         # Customer data models
+│   └── dashboard.dart        # Dashboard data models
+├── data/
+│   └── customer_data.dart    # Sample customer data
+│   └── dashboard_data.dart   # Dashboard sample data
+└── widgets/
+    ├── custom_app_bar.dart   # Custom app bar widget
+    ├── tab_section.dart      # Tabs and filters section
+    ├── customer_card.dart    # Customer card widget
+    └── help_section.dart     # Bottom help section
 ```
 
-## Notes
+## Design Features
 
-- The app is designed to match the exact visual appearance of the provided screenshots
-- WhatsApp and SMS functionality requires proper configuration for production use
-- Bank logos are represented with colored containers and letters (can be replaced with actual logo images)
-- All text styles, colors, and spacing match the original design specifications
+- **Multi-Screen Architecture**: Dashboard, leads list, and detailed customer views
+- **Interactive Navigation**: Tap-to-navigate between screens with smooth transitions
+- **Gradient Backgrounds**: Beautiful gradient headers and accent elements
+- **Material Design**: Uses Flutter's Material Design components
+- **Custom Styling**: Matches the original design with Poppins font family
+- **Responsive Layout**: Adapts to different screen sizes
+- **Shadow Effects**: Subtle shadows for depth and visual hierarchy
+- **Color Scheme**: Blue accent color (#0057D8) with proper contrast ratios
 
-To run this in your local Flutter environment, simply copy these files to a new Flutter project and run `flutter pub get` followed by `flutter run`.
+## Customization
+
+- Modify `customer_data.dart` to add or update customer information
+- Update `dashboard_data.dart` to customize dashboard statistics and activities
+- Update colors in the theme or individual widgets
+- Add new filter options in `TabSection`
+- Extend the `Customer` model for additional fields
+- Add new quick actions in the dashboard
+
+## Build
+
+To build the app for release:
+
+```bash
+flutter build apk --release  # For Android
+flutter build ios --release  # For iOS
+```
