@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
-import 'screens/lead_detail_screen.dart';
-import 'screens/application_timeline_screen.dart';
-import 'screens/recommended_products_screen.dart';
+import 'package:flutter/services.dart';
+import 'screens/dashboard_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lead Management App',
+      title: 'Leads App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins',
+        scaffoldBackgroundColor: const Color(0xFFF5F9FF),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Color(0xFF282828),
+          elevation: 0,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
+        ),
       ),
-      home: LeadDetailScreen(),
-      routes: {
-        '/timeline': (context) => ApplicationTimelineScreen(),
-        '/recommended': (context) => RecommendedProductsScreen(),
-      },
+      home: const DashboardScreen(),
     );
   }
 }
